@@ -41,10 +41,12 @@ export const SectionsColumn = ({
   const { saveBackup, deleteBackup } = useLocalStorage()
 
   useEffect(() => {
+    // Default slug list
     var slugsFromPreviousSession =
       localStorage.getItem('current-slug-list') == null
-        ? 'title-and-description'
+        ? 'title-header,screenshots,contributors,standard-footer'
         : localStorage.getItem('current-slug-list')
+
     setSlugsFromPreviousSession(slugsFromPreviousSession)
     if (slugsFromPreviousSession.length > 0) {
       setpageRefreshed(true)
@@ -120,9 +122,9 @@ export const SectionsColumn = ({
     if (sectionResetConfirmed === true) {
       const slugList = data ? data.split(',') : []
 
-      setSectionSlugs((prev) => [...prev, ...slugList].filter((s) => s !== 'title-and-description'))
-      setSelectedSectionSlugs(['title-and-description'])
-      setFocusedSectionSlug('title-and-description')
+      setSectionSlugs((prev) => [...prev, ...slugList].filter((s) => s !== 'title-header'))
+      setSelectedSectionSlugs(['title-header'])
+      setFocusedSectionSlug('title-header')
       localStorage.setItem('current-focused-slug', 'noEdit')
       setTemplates(originalTemplate)
       deleteBackup()
@@ -190,8 +192,8 @@ export const SectionsColumn = ({
         )}
         <ul className="mb-12 space-y-3">
           {
-            (pageRefreshed && slugsFromPreviousSession.indexOf('title-and-description') == -1
-              ? sectionSlugs.push('title-and-description')
+            (pageRefreshed && slugsFromPreviousSession.indexOf('title-header') == -1
+              ? sectionSlugs.push('title-header')
               : ' ',
             (alphabetizedSectionSlugs = sectionSlugs.sort()),
             pageRefreshed || addAction

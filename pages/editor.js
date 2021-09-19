@@ -34,10 +34,10 @@ export default function Editor({ sectionTemplate }) {
   useEffect(() => {
     let currentSlugList = localStorage.getItem('current-slug-list')
     if (
-      currentSlugList.indexOf('title-and-description') == -1 &&
-      selectedSectionSlugs.indexOf('title-and-description') > -1
+      currentSlugList.indexOf('title-header') == -1 &&
+      selectedSectionSlugs.indexOf('title-header') > -1
     ) {
-      selectedSectionSlugs.splice(selectedSectionSlugs.indexOf('title-and-description'), 1)
+      selectedSectionSlugs.splice(selectedSectionSlugs.indexOf('title-header'), 1)
     }
     setFocusedSectionSlug(localStorage.getItem('current-slug-list').split(',')[0])
     localStorage.setItem('current-slug-list', selectedSectionSlugs)
@@ -50,7 +50,7 @@ export default function Editor({ sectionTemplate }) {
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet" />
-        <script
+        {/* <script
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -61,7 +61,7 @@ export default function Editor({ sectionTemplate }) {
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-        ></script>
+        ></script> */}
       </Head>
 
       <Nav

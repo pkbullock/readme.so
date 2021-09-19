@@ -12,12 +12,12 @@ const Home = () => {
   return (
     <>
       <Head>
-        <script
+        {/* <script
           async
           defer
           data-domain="readme.so"
           src="https://plausible.io/js/plausible.js"
-        ></script>
+        ></script> */}
       </Head>
       <div className="bg-gray-50">
         <div className="relative overflow-hidden">
